@@ -27,10 +27,13 @@ class SafeArray
 
 		//copy constructor. It can be used to initialize one SafeArray with another
 		//Also for safty since there is a precesence of pointers
-		SafeArray(const SafeArray &a)
+		SafeArray(SafeArray &a)
 		{
 			size = a.size;
 			sarray = new T[size];
+			for(int index = 0; index < size; index++){
+				sarray[index] = a[index];
+			}
 		}
 
 		//returns the size of the array
